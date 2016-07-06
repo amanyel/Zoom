@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+#container{
+	width:500px;
+	padding:5px;
+	border:1px solid #CCC;
+	margin-left:auto;
+	margin-right:auto;
+}
+#gallery_image{
+	width:430px;
+	margin-top:10px;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	border:1px solid #CCC;
+}
+#gallery_image img{
+	border:2px solid white;
+}
+.active img{
+	border:2px solid #333 !important;
+}
+</style>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.elevatezoom.js"></script>
+<script>
+$(document).ready(function(){
+
+	$("#zoom_zoom").elevateZoom({
+		gallery:'gallery_image',
+		cursor: 'pointer',
+		galleryActiveClass: 'active',
+		imageCrossfade: true,
+		tint:true,
+		tintColour:'#FF9999',
+		tintOpacity:0.5,
+	});
+	$("#zoom_zoom").bind("click", function(e) {
+		var ez = $('#zoom_zoom').data('elevateZoom');
+		$.fancybox(ez.getGalleryList());
+		return false;
+	});
+});
+</script>
+<title>Zoom Effect</title>
+</head>
+<body>
+	<div id="container">
+		<h1> Move the mouse over to Zoom in </h1>
+
+        <img id="zoom_zoom" src="small/1.jpg" data-zoom-image="large/1.jpg"/>
+        <div id="gallery_image">
+            <a href="#" data-image="small/1.jpg" data-zoom-image="large/1.jpg">
+                <img id="zoom_zoom" src="thumb/1.jpg" />
+            </a>
+            <a href="#" data-image="small/2.jpg" data-zoom-image="large/2.jpg">
+                <img id="zoom_zoom" src="thumb/2.jpg" />
+            </a>
+            <a href="#" data-image="small/3.jpg" data-zoom-image="large/3.jpg">
+                <img id="zoom_zoom" src="thumb/3.jpg" />
+            </a>
+            <a href="#" data-image="small/4.jpg" data-zoom-image="large/4.jpg">
+                <img id="zoom_zoom" src="thumb/4.jpg" />
+            </a>
+        </div>
+				<h5> By Amany EL Romeh </h5>
+    </div>
+</body>
+</html>
